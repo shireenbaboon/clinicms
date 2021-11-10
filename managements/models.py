@@ -1,4 +1,6 @@
-
+from django.conf import settings
+from django.contrib.auth import get_user_model
+from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse
 import datetime
@@ -76,8 +78,8 @@ class Patients(models.Model):
 class Appointments(models.Model):
     patient = models.ForeignKey(Patients, null=True, on_delete=models.CASCADE)
     doctor = models.ForeignKey(Doctors, default=None, on_delete=models.CASCADE)
-    date = models.CharField(max_length=20,default='mm/dd/yyyy')
-    time = models.CharField(max_length=20,default='00.00 AM/PM',blank=True,null=True)
+    dates = models.DateField("Date", default=None,null=True)
+    time = models.TimeField('Time',default=None)
     created_date = models.DateTimeField(default=timezone.now)
     updated_date = models.DateTimeField(auto_now_add=True)
     Pending = 'PD'
@@ -103,7 +105,7 @@ class Prescriptions(models.Model):
     patient = models.ForeignKey(Patients, null=True, on_delete=models.CASCADE)
     doctor = models.ForeignKey(Doctors, default=None, on_delete=models.CASCADE)
     date = models.DateField("Date", default=datetime.date.today)
-    symptoms = models.CharField(max_length=100)
+    symptoms = models.CharField(max_length=1000)
     description = models.TextField()
     pharmacy_address = models.CharField(max_length=2000, blank=True, null=True)
     created_date = models.DateTimeField(default=timezone.now)
