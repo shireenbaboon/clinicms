@@ -1,0 +1,50 @@
+<html>
+ <head>
+   <title>Test</title>
+   <style>
+     h1 {
+       text-align: center;
+     }
+
+     table {
+       border: 1px solid;
+       margin: 0 auto;
+       width: 70%;
+     }
+
+     td, th {
+       text-align: center;
+       border: 1px solid;
+     }
+   </style>
+ </head>
+ <body>
+   <h1>Doctors List</h1>
+   <table>
+     <thead>
+       <th> Name</th>
+       <th>Age</th>
+       <th>Gender</th>
+       <th>Address</th>
+       <th>Email</th>
+       <th>Phone</th>
+       <th>Specialty</th>
+       <th>Created Date</th>
+       </tr>
+     </thead>
+       <tbody>
+            {% for doctor in doctor %}
+            <tr>
+                    <td>{{ doctor.name }}</td>
+                    <td>{{ doctor.age }}</td>
+                    <td>{{ doctor.gender }}</td>
+                    <td>{{ doctor.address }}</td>
+                    <td>{{ doctor.email }}</td>
+                    <td>{{ doctor.phone}}</td>
+                    <td>{{ doctor.specialty }}</td>
+                    <td>{{ doctor.created_date }}</td>
+       {% endfor %}
+     </tbody>
+   </table>
+ </body>
+</html>
