@@ -1,21 +1,7 @@
-import email
-import io
-from email import message
-
-import canvas as canvas
-from django.core import mail
-from django.shortcuts import render
-from django.utils import timezone
-from reportlab.lib.pagesizes import letter
-from reportlab.lib.units import inch
-import smtplib
-from pdf_mail import sendpdf
 from email.message import EmailMessage
 from io import BytesIO
-
 from .models import *
 from .forms import *
-from django.core.mail import send_mail
 from django.shortcuts import render, get_object_or_404, redirect
 import weasyprint
 from django.template.loader import render_to_string
@@ -23,7 +9,6 @@ from django.core.mail import EmailMessage, send_mail, send_mass_mail
 from django.conf import settings
 from .models import Doctors
 
-from django.http import FileResponse, HttpResponseRedirect, HttpResponse, response
 
 
 def doctor_list(request):
