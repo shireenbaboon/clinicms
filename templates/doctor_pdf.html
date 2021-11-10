@@ -1,50 +1,34 @@
 <html>
  <head>
-   <title>Test</title>
+     <style>
+ul.no-bullets {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+</style>
+   <h1>Doctor Details</h1>
    <style>
      h1 {
        text-align: center;
      }
-
-     table {
-       border: 1px solid;
-       margin: 0 auto;
-       width: 70%;
-     }
-
-     td, th {
-       text-align: center;
-       border: 1px solid;
-     }
    </style>
  </head>
  <body>
-   <h1>Doctors List</h1>
-   <table>
-     <thead>
-       <th> Name</th>
-       <th>Age</th>
-       <th>Gender</th>
-       <th>Address</th>
-       <th>Email</th>
-       <th>Phone</th>
-       <th>Specialty</th>
-       <th>Created Date</th>
-       </tr>
-     </thead>
-       <tbody>
-            {% for doctor in doctor %}
-            <tr>
-                    <td>{{ doctor.name }}</td>
-                    <td>{{ doctor.age }}</td>
-                    <td>{{ doctor.gender }}</td>
-                    <td>{{ doctor.address }}</td>
-                    <td>{{ doctor.email }}</td>
-                    <td>{{ doctor.phone}}</td>
-                    <td>{{ doctor.specialty }}</td>
-                    <td>{{ doctor.created_date }}</td>
-       {% endfor %}
-     </tbody>
-   </table>
+ <ul class="no-bullets">
+     <li>Doctor Name:{{ doctors.name }}</li>
+     <li>Age:{{ doctors.age }}</li>
+     <li>Gender :{{ doctors.gender }}</li>
+     <li>Address :{{ doctors.address }}</li>
+     <li>Phone :{{ doctors.phone }}</li>
+     <li>Email :{{ doctors.email }}</li>
+     <li>Specialty :{{doctors.specialty }}</li>
+     <li>Created Date :{{doctors.created_date }}</li>
+<h2>******************************************************************************</h2>
+
+ </ul>
+
  </body>
+</html>
+
 </html>
