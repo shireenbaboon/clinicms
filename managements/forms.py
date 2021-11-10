@@ -1,11 +1,6 @@
 from django import forms
-from django.forms import DateInput
-from bootstrap_datepicker_plus import DatePickerInput
-
 from .models import Doctors, Nurses, Patients, Appointments, Prescriptions
-from django.contrib.admin.widgets import AdminDateWidget
-from django.forms.fields import DateField
-from bootstrap_datepicker_plus import DatePickerInput,MonthPickerInput
+from django.forms.widgets import DateInput, TimeInput
 
 
 class DoctorForm(forms.ModelForm):
@@ -19,14 +14,7 @@ class DoctorForm(forms.ModelForm):
             ('Others', 'Others'),
 
         )
-        date = forms.DateField(
-            widget=DatePickerInput(
-                options={
-                    "format": "mm/dd/yyyy",
-                    "autoclose": True
-                }
-            )
-        )
+
 
 
 class NurseForm(forms.ModelForm):
@@ -40,9 +28,7 @@ class NurseForm(forms.ModelForm):
             ('Others', 'Others'),
 
         )
-        widgets = {
-            'gender': forms.Select(choices=GENDER_CHOICES, attrs={'class': 'form-control'}),
-        }
+
 
 
 class PatientForm(forms.ModelForm):
@@ -56,36 +42,20 @@ class PatientForm(forms.ModelForm):
             ('Others', 'Others'),
 
         )
-        widgets = {
-            'gender': forms.Select(choices=GENDER_CHOICES, attrs={'class': 'form-control'}),
-        }
+
 
 
 class PrescriptionForm(forms.ModelForm):
     class Meta:
         model = Prescriptions
         fields = ('patient', 'doctor', 'date', 'symptoms', 'description', 'pharmacy_address', 'created_date')
-        date = forms.DateField(
-            widget=DatePickerInput(
-                options={
-                    "format": "mm/dd/yyyy",
-                    "autoclose": True
-                }
-            )
-        )
+        widgets = {'date': DateInput(attrs={'type': 'date'}),
+                   }
 
 
 class AppointmentForm(forms.ModelForm):
-    date=forms.DateField(widget=DateInput)
     class Meta:
         model = Appointments
-        fields = ('patient', 'doctor', 'date', 'time', 'status')
-        date = forms.DateField(
-            widget=DatePickerInput(
-                options={
-                    "format": "mm/dd/yyyy",
-                    "autoclose": True
-                }
-            )
-        )
-
+        fields = ('patient', 'doctor', 'dates', 'time', 'status')
+        widgets = {'dates': forms.DateInput(attrs={'type': 'date'}),
+                   'time': forms.TimeInput(attrs={'type': 'time'})}
