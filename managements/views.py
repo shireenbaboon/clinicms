@@ -275,7 +275,7 @@ def admin_prescription_pdf(request,pk):
     email = EmailMessage(subject,
                          message,
                          'shireenbaboon@gmail.com',
-                         ['shireen54@gmail.com']
+                         ['shireen54@gmail.com','groyce@unomaha.edu']
                          )
     html = render_to_string('prescription_pdf.html',
                             {'prescriptions': prescription})
@@ -296,7 +296,7 @@ def admin_appointment_pdf(request,pk):
     email = EmailMessage(subject,
                          message,
                          'shireenbaboon@gmail.com',
-                         ['shireen54@gmail.com']
+                         ['shireen54@gmail.com','groyce@unomaha.edu']
                          )
     html = render_to_string('appointment_pdf.html',
                             {'appointments': appointment})
