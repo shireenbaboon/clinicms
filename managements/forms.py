@@ -4,8 +4,10 @@ from django.forms.widgets import DateInput, TimeInput
 
 
 class DoctorForm(forms.ModelForm):
+
     class Meta:
         model = Doctors
+
         fields = ('name', 'age', 'gender', 'address', 'email', 'phone', 'specialty', 'created_date',)
         GENDER_CHOICES = (
             ('', 'Select a gender'),
