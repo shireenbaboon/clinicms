@@ -31,10 +31,10 @@
             </div>
         </div>
     </div>
-    <div>
+    <div class="table-responsive" >
         <table class="table table-striped table-bordered table-hover">
             <div class="row">
-            <h1 style="padding-left: -40px; font-weight: bold; margin-top:10px"> Prescription Details</h1>
+            <h1 style="padding-left: 40px; font-weight: bold; margin-top:10px"> Prescription Details</h1>
 
         </div>
             <thead>
@@ -72,9 +72,12 @@
             {% endfor %}
             </tbody>
         </table>
-        <a href="{% url 'managements:prescription_new' %}" class="btn btn-primary btn-lg active ml-2" role="button">Add Prescription</a>
-
     </div>
+    <a href="{% url 'managements:prescription_new' %}" class="btn btn-primary btn-lg active ml-2" role="button">Add Prescription</a>
+    <a href="{% url 'home' %}" class="btn btn-primary btn-lg active ml-2" role="button">Go To Homepage</a>
+
+
+
     </body>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <!-- Latest compiled and minified JavaScript -->
