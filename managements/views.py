@@ -234,12 +234,12 @@ def appointment_delete(request, pk):
 def admin_doctor_pdf(request,pk):
     doctor = get_object_or_404(Doctors, pk=pk)
     subject = f' Doctor PDF is generated'
-    message = 'Please find the attached file for doctor list.'
+    message = 'Please find the attached file for doctor list(MSD Assignment3).'
 
     email = EmailMessage(subject,
                          message,
                          'shireenbaboon@gmail.com',
-                         ['shireen54@gmail.com']
+                         ['shireen54@gmail.com','groyce@unomaha.edu']
                          )
     html = render_to_string('doctor_pdf.html',
                             {'doctors': doctor})
@@ -255,7 +255,7 @@ def admin_doctor_pdf(request,pk):
 def admin_prescription_pdf(request,pk):
     prescription = get_object_or_404(Prescriptions, pk=pk)
     subject = f' prescription PDF is generated'
-    message = 'Please find the attached file for prescription.'
+    message = 'Please find the attached file for prescription(MSD Assignment3).'
 
     email = EmailMessage(subject,
                          message,
@@ -276,7 +276,7 @@ def admin_prescription_pdf(request,pk):
 def admin_appointment_pdf(request,pk):
     appointment = get_object_or_404(Appointments, pk=pk)
     subject = f' Appointment PDF is generated'
-    message = 'Please find the attached file for appointment details.'
+    message = 'Please find the attached file for appointment details(MSD Assignment3).'
 
     email = EmailMessage(subject,
                          message,
@@ -297,12 +297,12 @@ def admin_appointment_pdf(request,pk):
 def admin_nurse_pdf(request,pk):
     nurse = get_object_or_404(Nurses, pk=pk)
     subject = f' Nurse PDF is generated'
-    message = 'Please find the attached file for nurse details.'
+    message = 'Please find the attached file for nurse details(MSD Assignment3).'
 
     email = EmailMessage(subject,
                          message,
                          'shireenbaboon@gmail.com',
-                         ['shireen54@gmail.com']
+                         ['shireen54@gmail.com','groyce@unomaha.edu']
                          )
     html = render_to_string('nurse_pdf.html',
                             {'nurses': nurse})
@@ -318,12 +318,12 @@ def admin_nurse_pdf(request,pk):
 def admin_patient_pdf(request,pk):
     patient = get_object_or_404(Patients, pk=pk)
     subject = f' Patient PDF is generated'
-    message = 'Please find the attached file for patient details.'
+    message = 'Please find the attached file for patient details(MSD Assignment3).'
 
     email = EmailMessage(subject,
                          message,
                          'shireenbaboon@gmail.com',
-                         ['shireen54@gmail.com']
+                         ['shireen54@gmail.com','groyce@unomaha.edu']
                          )
     html = render_to_string('patient_pdf.html',
                             {'patients': patient})
